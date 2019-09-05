@@ -174,8 +174,8 @@ return [
     */
 
     'plugins' => [
-        // 'datatables' => true,
-        // 'select2'    => true,
-        // 'chartjs'    => true,
+        'datatables' => true,
+        'select2'    => true,
+        'chartjs'    => true,
     ],
 ];
