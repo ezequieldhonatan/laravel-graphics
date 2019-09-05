@@ -13,11 +13,11 @@ return [
     |
     */
 
-    'title' => 'Curso Laravel',
+    'title' => 'Laravel Graphics',
 
     'title_prefix' => '',
 
-    'title_postfix' => ' - EspecializaTi',
+    'title_postfix' => ' - Graphics',
 
     /*
     |--------------------------------------------------------------------------
@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => 'Adm Curso',
+    'logo' => 'Adm',
 
     'logo_mini' => 'ADM',
 
@@ -128,6 +128,17 @@ return [
             'text'        => 'Usuários',
             'url'         => 'admin/users',
             'icon'        => 'users',
+        ],
+        [
+            'text'        => 'Relatórios',
+            'icon'        => 'area-chart',
+            'submenu'     => [
+                [
+                    'text'        => 'Meses',
+                    'url'         => 'admin/reports/months',
+                    'icon'        => 'line-chart',
+                ],
+            ]
         ],
     ],
 
