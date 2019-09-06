@@ -18,14 +18,25 @@ class ReportsController extends Controller
 
     public function months(ReportsChart $chart)
     {
-        $chart->labels(['JAN', 'FEV', 'MAR']);
+        $chart->labels([
+            'Janeiro',
+            'Fevereiro',
+            'Março',
+            'Abril',
+            'Maio',
+            'Junho',
+            'Julho',
+            'Agosto',
+            'Setembro',
+            'Outubro',
+            'Novembro',
+            'Dezembro',
+        ]);
 
-        $chart->dataset('2018', 'bar', $this->repository->byMonths(2018));
+        $chart->dataset('2017', 'bar', $this->repository->byMonths(2017));
         
         // $chart->dataset('2019', 'line', [
-        $chart->dataset('2019', 'bar', [
-            12, 14, 16
-        ])
+        $chart->dataset('2018', 'bar', $this->repository->byMonths(2018))
         ->options([
             'backgroundColor' => '#999'
         ]);
