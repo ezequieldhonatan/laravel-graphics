@@ -5,16 +5,22 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Charts\ReportsChart;
+use App\Repositories\Contracts\ReportsRepositoryInterface;
 
 class ReportsController extends Controller
 {
+    private $repository;
+
+    public function __construct(ReportsRepositoryInterface $repository)
+    {
+        $this->repository = $repository;
+    }
+
     public function months(ReportsChart $chart)
     {
         $chart->labels(['JAN', 'FEV', 'MAR']);
 
-        $chart->dataset('2018', 'bar', [
-            10, 18, 69
-        ]);
+        $chart->dataset('2018', 'bar', $this->repository->byMonths(2018));
         
         // $chart->dataset('2019', 'line', [
         $chart->dataset('2019', 'bar', [
