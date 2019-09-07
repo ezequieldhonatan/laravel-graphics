@@ -31,4 +31,11 @@ class ReportsController extends Controller
 
         return view('admin.charts.chart', compact('chart'));
     }
+
+    public function months2(ReportsChart $chart)
+    {
+        $chart = $this->repository->getReports(2016, 2018);
+
+        return view('admin.charts.chart', compact('chart'));
+    }
 }
