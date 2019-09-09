@@ -17,7 +17,9 @@ $this->group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     $this->any('users/search', 'UserController@search')->name('users.search'); ## USERS
 
     // $this->get('reports/months', 'ReportsController@months')->name('reports.months'); ## REPORTS MONTHS
-    $this->get('reports/months', 'ReportsController@months2')->name('reports.months'); ## REPORTS MONTHS
+    $this->get('reports/months', 'ReportsController@months2')->name('reports.months'); ## REPORTS MONTHS 2
+
+    $this->get('reports/years', 'ReportsController@year')->name('reports.year'); ## REPORTS YEAR
     
 });
 

@@ -53,4 +53,27 @@ class QueryBuilderReportsRepository extends BaseQueryBuilderRepository implement
         }
         return $chart;
     }
+
+    public function getDataYears():array
+    {
+        $data = $this->db
+                    ->table($this->tb)
+                    ->select(
+                        DB::raw('sum(total) as total'),
+                        DB::raw("EXTRACT(YEAR from date) as year")
+                    )
+                    ->groupBy(DB::raw('YEAR(date)'))
+                    // ->whereYear('date', $year)
+                    ->get();
+
+        $backgrounds = $data->map(function($value, $key) {
+            return '#' . dechex(rand(0x000000, 0xFFFFFF));
+        });
+
+        return [
+            'labels'            => $data->pluck('year'),
+            'values'            => $data->pluck('total'),
+            'backgrounds'       => $backgrounds,
+        ];
+    }
 }

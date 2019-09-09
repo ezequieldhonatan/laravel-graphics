@@ -38,4 +38,18 @@ class ReportsController extends Controller
 
         return view('admin.charts.chart', compact('chart'));
     }
+
+    public function year(ReportsChart $chart)
+    {
+        $response = $this->repository->getDataYears();
+
+        $chart->labels($response['labels'])
+                // ->dataset('Relatório de vendas', 'line', $response['values'])
+                // ->backgroundColor('blue');
+                ->dataset('Relatório de vendas', 'bar', $response['values'])
+                ->color('black')
+                ->backgroundColor($response['backgrounds']);
+
+        return view('admin.charts.chart', compact('chart'));
+    }
 }
