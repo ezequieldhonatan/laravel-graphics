@@ -21,9 +21,13 @@
 
                 @include('admin.includes.alerts')
 
-                Relatório com Vue JS
+                <reports-months></reports-months>
 
             </div>
         </div>
     </div>
 @stop
+
+@push('js')
+    <script src="{{ url('js/app.js') }}"></script>
+@endpush
