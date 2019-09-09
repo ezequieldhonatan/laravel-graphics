@@ -70,9 +70,13 @@ class QueryBuilderReportsRepository extends BaseQueryBuilderRepository implement
             return '#' . dechex(rand(0x000000, 0xFFFFFF));
         });
 
+        $values = $data->map(function ($order, $key) {
+            return number_format($order->total, 0, '', '');
+        });
+
         return [
             'labels'            => $data->pluck('year'),
-            'values'            => $data->pluck('total'),
+            'values'            => $values, // $data->pluck('total'),
             'backgrounds'       => $backgrounds,
         ];
     }

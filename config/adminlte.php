@@ -141,7 +141,7 @@ return [
                 [
                     'text'        => 'Anual',
                     'url'         => 'admin/reports/years',
-                    'icon'        => 'line-chart',
+                    'icon'        => 'pie-chart',
                 ],
             ]
         ],

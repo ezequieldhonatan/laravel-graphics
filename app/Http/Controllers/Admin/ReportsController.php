@@ -50,6 +50,18 @@ class ReportsController extends Controller
                 ->color('black')
                 ->backgroundColor($response['backgrounds']);
 
+        $chart->options([
+            'scales' => [
+                'yAxes' => [
+                    [
+                        'ticks' => [
+                            'callback' => $chart->rawObject('myCallback')
+                        ]
+                    ]
+                ]
+            ]
+        ]);
+
         return view('admin.charts.chart', compact('chart'));
     }
 }
